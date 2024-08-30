@@ -1,48 +1,45 @@
-trickle
-=======
+# dribble
 
-  by Marius Aamodt Eriksen <marius@monkey.org>
+fork of the [trickle](https://github.com/mariusae/trickle) by Marius Aamodt Eriksen <marius@monkey.org>
+  http://monkey.org/~marius/trickle
 
-   http://monkey.org/~marius/trickle
+## Description
 
-[![Build Status](https://travis-ci.org/mariusae/trickle.svg)](https://travis-ci.org/mariusae/trickle)
+dribble is a voluntary, cooperative bandwidth shaper.  dribble works entirely in userland and is cross platform compatible.
 
-Description
------------
+## Install
 
-   trickle is a voluntary, cooperative bandwidth shaper.  trickle works
-   entirely in userland and is cross platform compatible.
+```
+autoreconf -if
+./configure
+make
+su
+make install
+```
 
-Install
--------
+Note that on certain systems you may get the following error on `make`:
 
-    autoreconf -if
-    ./configure
-    make
-    su
-    make install
+```
+configure.in:220: error: do not use LIBOBJS directly, use AC_LIBOBJ (see 
+  section `AC_LIBOBJ vs LIBOBJS'
+        If this token and others are legitimate, please use m4_pattern_allow.
+        See the Autoconf documentation.
+  make: *** [configure] Error 1
+```
 
-   Note that on certain systems you may get the following error on `make`:
+this is easily circumvented by running make again.
 
-    configure.in:220: error: do not use LIBOBJS directly, use AC_LIBOBJ (see 
-    section `AC_LIBOBJ vs LIBOBJS'
-          If this token and others are legitimate, please use m4_pattern_allow.
-          See the Autoconf documentation.
-    make: *** [configure] Error 1
+To make a RedHat RPM, simply type
 
-   this is easily circumvented by running make again.
+```
+rpmbuild -ta trickle-1.07.tar.gz
+```
 
-   To make a RedHat RPM, simply type
+## Documentation
 
-    rpmbuild -ta trickle-1.07.tar.gz
+See the manpage trickle(1), trickled(8) and trickled.conf(5).
 
-Documentation
--------------
-
-   See the manpage trickle(1), trickled(8) and trickled.conf(5).
-
-Thanks
-------
+## Thanks
 
 *   Jolan Luff <jolan@cryptonomicon.org>  
        for testing and access to esoteric platforms.
@@ -64,9 +61,8 @@ Thanks
 *   MESH (http://mesh.eecs.umich.edu/)  
        for useful discussions and suggestions.
 
-License
--------
+## License
 
-   trickle is distributed under a BSD like license.  Feel free to use,
-   modify and distribute in any form.  See the LICENSE file for more
-   information.
+dribble is distributed under the same license as trickle.
+
+trickle is distributed under a BSD like license. Feel free to use, modify and distribute in any form. See the LICENSE file for more information.
